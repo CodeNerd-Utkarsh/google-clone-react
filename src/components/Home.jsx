@@ -35,7 +35,11 @@ const Home = () => {
             </div>
             <div className="home__inputContainer">
                 {/* Search */}
-                <Search />
+                {/* from here you can send props(properties) like 'hiding the buttons' */}
+
+                {/* <Search />   */}
+                <Search hideButtons/>
+
             </div>
         </div>
     )
