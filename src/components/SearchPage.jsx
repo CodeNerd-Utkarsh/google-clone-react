@@ -5,6 +5,7 @@ import './SearchPage.css';
 import Response from './response';
 import { Link } from 'react-router-dom';
 import Search from './Search';
+import SearchPageOptions from './SearchPageOptions';
 
 function SearchPage() {
      const[{term},dispatch] = useStateValue();
@@ -22,6 +23,7 @@ function SearchPage() {
                 {/* <h1>{term}</h1> */}
                 <div className="searchPage__headerBody">
                     <Search hideButtons />
+                    <SearchPageOptions />
                 </div>
             </div>
             <div className="searchPage__results">
