@@ -28,7 +28,7 @@ function SearchPage() {
                     <SearchPageOptions />
                 </div>
             </div>
-            {true && (
+            {term && (
                 <div className="searchPage__results">
                     <p className="searchPage__resCount">
                         About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime} seconds) for {term}
