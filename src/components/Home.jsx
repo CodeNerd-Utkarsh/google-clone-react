@@ -37,8 +37,8 @@ const Home = () => {
                 {/* Search */}
                 {/* from here you can send props(properties) like 'hiding the buttons' */}
 
-                {/* <Search />   */}
-                <Search hideButtons/>
+                <Search />  
+                {/* <Search hideButtons/> */}
 
             </div>
         </div>

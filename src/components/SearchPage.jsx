@@ -2,7 +2,7 @@ import React from 'react';
 import useGoogleSearch from '../customHooks/useGoogleSearch';
 import { useStateValue } from '../StateProvider';
 import './SearchPage.css';
-import Response from './response';
+// import Response from './response';
 import { Link } from 'react-router-dom';
 import Search from './Search';
 import SearchPageOptions from './SearchPageOptions';
@@ -10,8 +10,10 @@ import SearchPageOptions from './SearchPageOptions';
 function SearchPage() {
      const[{term},dispatch] = useStateValue();
     //  this one is the live API call
-    //  const {data} = useGoogleSearch(term);
-    const data = Response;
+     const {data} = useGoogleSearch(term);
+
+    // this one is dummy call
+    // const data = Response;
 
      console.log('data is',data);
     return (
@@ -26,10 +28,25 @@ function SearchPage() {
                     <SearchPageOptions />
                 </div>
             </div>
-            <div className="searchPage__results">
-                
-
-            </div>
+            {true && (
+                <div className="searchPage__results">
+                    <p className="searchPage__resCount">
+                        About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime} seconds) for {term}
+                    </p>
+                    {data?.items.map(item =>(
+                        <div className="searchPage__result">
+                            <a href='{item.link}'>
+                                {item.displayLink}
+                            </a>
+                            <a href="{item.Link}" className='searchPage__resultTitle'>
+                                <h2>{item.title}</h2>
+                            </a>
+                            <p className="searchPage__resultSnippet">{item.snippet}</p>
+                        </div>
+                        
+                    ))}
+                </div>
+            )}
         </div>
     )
 }
